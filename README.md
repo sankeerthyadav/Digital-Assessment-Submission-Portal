@@ -1,8 +1,8 @@
 # 📚 Digital Assessment Submission Portal
 
-A full-stack **MERN web application** designed to streamline digital assignment submission, evaluation, and feedback between **Teachers** and **Students**.
+The Digital Assessment Submission Portal is a full-stack MERN web application developed to modernize and simplify the academic assessment process between teachers and students. The platform provides a secure and efficient environment where teachers can create and manage assessments, review student submissions, and provide feedback digitally, while students can submit assignments, track progress, and access evaluation results seamlessly.
 
-Built with **MongoDB, Express.js, React.js, and Node.js**, this system provides a secure, role-based, and production-level workflow for managing assessments efficiently.
+Built using MongoDB, Express.js, React.js, and Node.js, the system follows a role-based architecture with secure authentication, protected routes, file upload functionality, and responsive user interfaces. The project aims to replace traditional manual workflows with a centralized digital solution that improves accessibility, organization, communication, and overall efficiency in educational assessment management.
 
 ---
 
@@ -95,104 +95,99 @@ Built with **MongoDB, Express.js, React.js, and Node.js**, this system provides 
 
 ## 📂 Project Structure
 
-Mern-Stack-project/
+```bash
+📦 Mern-Stack-project
+├── 📁 server
+│   ├── 📁 config
+│   │   └── 🗄️ db.js
+│   │
+│   ├── 📁 controllers
+│   │   ├── 🔐 authController.js
+│   │   ├── 👨‍🏫 teacherController.js
+│   │   ├── 🎓 studentController.js
+│   │   └── 📂 fileController.js
+│   │
+│   ├── 📁 models
+│   │   ├── 👤 User.js
+│   │   ├── 📘 Subject.js
+│   │   ├── 📝 Assessment.js
+│   │   ├── 📤 Submission.js
+│   │   └── 💬 Feedback.js
+│   │
+│   ├── 📁 routes
+│   │   ├── 🛣️ authRoutes.js
+│   │   ├── 🛣️ teacherRoutes.js
+│   │   ├── 🛣️ studentRoutes.js
+│   │   ├── 🛣️ fileRoutes.js
+│   │   └── 🗑️ deleteRoutes.js
+│   │
+│   ├── 📁 middleware
+│   │   ├── 🛡️ authMiddleware.js
+│   │   ├── 👥 roleMiddleware.js
+│   │   └── ⬆️ uploadMiddleware.js
+│   │
+│   ├── 📁 uploads
+│   ├── ⚙️ .env
+│   ├── 🚀 server.js
+│   └── 📦 package.json
 │
-├── server/
-│ ├── config/
-│ │ └── db.js
-│ │
-│ ├── controllers/
-│ │ ├── authController.js
-│ │ ├── teacherController.js
-│ │ ├── studentController.js
-│ │ └── fileController.js
-│ │
-│ ├── models/
-│ │ ├── User.js
-│ │ ├── Subject.js
-│ │ ├── Assessment.js
-│ │ ├── Submission.js
-│ │ └── Feedback.js
-│ │
-│ ├── routes/
-│ │ ├── authRoutes.js
-│ │ ├── teacherRoutes.js
-│ │ ├── studentRoutes.js
-│ │ ├── fileRoutes.js
-│ │ └── deleteRoutes.js
-│ │
-│ ├── middleware/
-│ │ ├── authMiddleware.js
-│ │ ├── roleMiddleware.js
-│ │ └── uploadMiddleware.js
-│ │
-│ ├── uploads/
-│ │
-│ ├── .env
-│ ├── server.js
-│ └── package.json
+├── 📁 Client
+│   ├── 📁 public
+│   │
+│   ├── 📁 src
+│   │   ├── 📁 assets
+│   │   │
+│   │   ├── 📁 components
+│   │   │   ├── 📁 layout
+│   │   │   │   ├── 📑 Sidebar.jsx
+│   │   │   │   ├── 📑 Header.jsx
+│   │   │   │   └── 📑 Layout.jsx
+│   │   │   │
+│   │   │   ├── 📁 ui
+│   │   │   │   ├── 🔘 Button.jsx
+│   │   │   │   ├── ⌨️ Input.jsx
+│   │   │   │   └── ⏳ Loader.jsx
+│   │   │   │
+│   │   │   ├── 📁 Error
+│   │   │   │   └── ❌ ErrorBoundary.jsx
+│   │   │   │
+│   │   │   └── 📁 Routing
+│   │   │       ├── 🔒 protectedRoute.jsx
+│   │   │       ├── 🌐 publiconlyroute.jsx
+│   │   │       └── 🔁 Rolehomeredirect.jsx
+│   │   │
+│   │   ├── 📁 pages
+│   │   │   ├── 📁 auth
+│   │   │   │   ├── 🔑 Login.jsx
+│   │   │   │   └── 📝 Register.jsx
+│   │   │   │
+│   │   │   ├── 📁 teacher
+│   │   │   │   ├── 📊 teacherDashboard.jsx
+│   │   │   │   ├── 📝 assessmentcreatepage.jsx
+│   │   │   │   ├── 📈 teacherTrackingpage.jsx
+│   │   │   │   ├── 📂 ReviewSubmissionspage.jsx
+│   │   │   │   └── 💬 teacherFeedbackpage.jsx
+│   │   │   │
+│   │   │   └── 📁 student
+│   │   │       ├── 🎓 studentDashboard.jsx
+│   │   │       ├── 📚 ViewAssessmentsPage.jsx
+│   │   │       ├── 📤 SubmissionFormPage.jsx
+│   │   │       ├── 📍 TrackingPage.jsx
+│   │   │       ├── 💬 FeedbackPage.jsx
+│   │   │       └── 📋 studentfeedbacklistpage.js
+│   │   │
+│   │   ├── 📁 context
+│   │   │   └── 🔐 AuthContext.jsx
+│   │   │
+│   │   ├── 📁 hooks
+│   │   ├── 📁 utils
+│   │   ├── 🎯 App.jsx
+│   │   ├── ⚡ main.jsx
+│   │   └── 🎨 Styles
+│   │       └── index.css
 │
-├── Client/
-│ ├── public/
-│ │
-│ ├── src/
-│ │ ├── assets/
-│ │ │
-│ │ ├── components/
-│ │ │ ├── layout/
-│ │ │ │ ├── Sidebar.jsx
-│ │ │ │ ├── Header.jsx
-│ │ │ │ └── Layout.jsx
-│ │ │ │
-│ │ │ ├── ui/
-│ │ │ │ ├── Button.jsx
-│ │ │ │ ├── Input.jsx
-│ │ │ │ └── Loader.jsx
-│ │ │ │
-│ │ │ ├── Error/
-│ │ │ │ └── ErrorBoundary.jsx
-│ │ │ │
-│ │ │ ├── Routing/
-│ │ │ │ ├── protectedRoute.jsx
-│ │ │ │ ├── publiconlyroute.jsx
-│ │ │ │ └── Rolehomeredirect.jsx
-│ │
-│ │ ├── pages/
-│ │ │ ├── auth/
-│ │ │ │ ├── Login.jsx
-│ │ │ │ └── Register.jsx
-│ │ │ │
-│ │ │ ├── teacher/
-│ │ │ │ ├── teacherDashboard.jsx
-│ │ │ │ ├── assessmentcreatepage.jsx
-│ │ │ │ ├── teacherTrackingpage.jsx
-│ │ │ │ ├── ReviewSubmissionspage.jsx
-│ │ │ │ └── teacherFeedbackpage.jsx
-│ │ │ │
-│ │ │ ├── student/
-│ │ │ │ ├── studentDashboard.jsx
-│ │ │ │ ├── ViewAssessmentsPage.jsx
-│ │ │ │ ├── SubmissionFormPage.jsx
-│ │ │ │ ├── TrackingPage.jsx
-│ │ │ │ ├── FeedbackPage.jsx
-│ │ │ │ └── studentfeedbacklistpage.js
-│ │
-│ │ ├── context/
-│ │ │ └── AuthContext.jsx
-│ │ │
-│ │ ├── hooks/
-│ │ │
-│ │ ├── utils/
-│ │ │
-│ │ ├── App.jsx
-│ │ ├── main.jsx
-│ │ └── Styles/
-│ │ └── index.css
-│
-├── README.md
-└── .gitignore
-
-
+├── 📘 README.md
+└── 🚫 .gitignore
 ---
 
 ## ⚙️ Installation & Setup
